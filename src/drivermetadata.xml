@@ -1,0 +1,43 @@
+<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.EslogscollectorDriver" Name="EslogscollectorDriver" Version="1.0.0">
+ <Layout>
+     <Category Name="Hidden Commands">
+            <Command Name="orchestration_save" >
+                <Parameters>
+                    <Parameter Name="mode" Type="Lookup" Mandatory = "True" AllowedValues="shallow,deep"  DefaultValue="shallow"
+                               Description="Snapshot save mode, can be one of two values 'shallow' (default) or 'deep'"/>
+                    <Parameter Name="custom_params" Type="String" Mandatory = "False"  DefaultValue=""
+                               Description=" Set of custom parameters for the save operation"/>
+                </Parameters>
+            </Command>
+            <Command Name="orchestration_restore" >
+                <Parameters>
+                    <Parameter Name="saved_details" Type="String" Mandatory = "True" DefaultValue=""
+                               Description="A JSON string representing the state to restore including saved artifacts and info"/>
+                    <Parameter Name="custom_params" Type="String" Mandatory = "False"  DefaultValue=""
+                               Description=" Set of custom parameters for the restore operation"/>
+
+                </Parameters>
+            </Command>
+            <Command Name="health_check"  Tags="" Description="Checks if the device is up and connectable"/>
+
+        </Category>
+        <Command Name="get_logs_attach" DisplayName="Get Logs and Attach" Tags="allow_unreserved" Description="Get all of the Sandbox logs from all ES">
+            <Parameters>
+                <Parameter Name="reservation_id" Type="String" Mandatory = "True" DisplayName="Sandbox ID" DefaultValue=""
+                           Description="Get the Logs for this specific Sandbox ID."/>
+            </Parameters>
+        </Command>
+         <Command Name="get_logs_email" DisplayName="Get Logs and Email" Tags="allow_unreserved" Description="Get all of the Sandbox logs from all ES">
+            <Parameters>
+                <Parameter Name="reservation_id" Type="String" Mandatory = "True" DisplayName="Sandbox ID" DefaultValue=""
+                           Description="Get the Logs for this specific Sandbox ID."/>
+            </Parameters>
+        </Command>
+     <Command Name="get_logs_base64" DisplayName="Get Logs as Base64" Tags="allow_unreserved" Description="Get all of the Sandbox logs from all ES">
+            <Parameters>
+                <Parameter Name="reservation_id" Type="String" Mandatory = "True" DisplayName="Sandbox ID" DefaultValue=""
+                           Description="Get the Logs for this specific Sandbox ID."/>
+            </Parameters>
+        </Command>
+    </Layout>
+</Driver>

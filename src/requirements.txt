@@ -1,0 +1,5 @@
+cloudshell-shell-core>=4.0.0,<4.1.0
+cloudshell-automation-api
+scp==0.13.2
+paramiko==2.4.2
+pywinrm

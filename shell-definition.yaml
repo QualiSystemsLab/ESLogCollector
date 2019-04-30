@@ -1,0 +1,148 @@
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+metadata:
+  template_name: Eslogscollector
+  template_author: Anonymous
+  template_version: 0.1.0
+  template_icon: shell-icon.png
+
+description: >
+  TOSCA based resource shell
+
+imports:
+  - cloudshell_standard: cloudshell_resource_standard_2_0_3.yaml
+
+node_types:
+
+  vendor.resource.Eslogscollector:
+    derived_from: cloudshell.nodes.GenericResource
+    properties:
+      Windows User:
+        description: Windows User
+        type: string
+      Windows Password:
+        description: Windows Password
+        type: cloudshell.datatypes.Password
+      Linux User:
+        description: Windows User
+        type: string
+      Linux Password:
+        description: Windows Password
+        type: cloudshell.datatypes.Password
+      Windows ES List:
+        description: Windows ES List CSV format
+        type: string
+      Linux ES List:
+        description: Linux ES List CSV format
+        type: string
+      Linux Log Location:
+        description: Linux Log Location
+        type: string
+        default: /var/log/qualisystems
+      Windows Log Location:
+        description: Windows Log Location
+        type: string
+        default: C:\programdata\qualisystems\logs
+      SMTP Server:
+        description: SMTP Server Address
+        type: string
+      SMTP Port:
+        description: SMTP Port
+        type: string
+      SMTP TLS:
+        description: SMTP TLS Support
+        type: boolean
+      SMTP Username:
+        description: SMTP Username
+        type: string
+      SMTP Password:
+        description: SMTP Password
+        type: cloudshell.datatypes.Password
+      SMTP From Name:
+        description: SMTP Send From Name
+        type: string
+
+    #  my_property:
+    #    type: string          # optional values: string, integer, float, boolean, cloudshell.datatypes.Password
+    #    default: fast
+    #    description: Some attribute description
+    #    constraints:
+    #      - valid_values: [fast, slow]
+    capabilities:
+      auto_discovery_capability:
+        type: cloudshell.capabilities.AutoDiscovery
+        properties:        
+          enable_auto_discovery:
+            type: boolean
+            default: false
+          auto_discovery_description:
+            type: string
+            default: Describe the auto discovery
+          inventory_description:
+            type: string
+            default: Describe the resource shell template
+          Windows User:
+            description: Windows User
+            type: string
+            tags: [user_input]
+          Windows Password:
+            description: Windows Password
+            type: cloudshell.datatypes.Password
+            tags: [user_input]
+          Linux User:
+            description: Windows User
+            type: string
+            tags: [user_input]
+          Linux Password:
+            description: Windows Password
+            type: cloudshell.datatypes.Password
+            tags: [user_input]
+          Windows ES List:
+            description: Windows ES List CSV format
+            type: string
+            tags: [user_input]
+          Linux ES List:
+            description: Linux ES List CSV format
+            type: string
+            tags: [user_input]
+          Linux Log Location:
+            description: Linux Log Location
+            type: string
+            tags: [user_input]
+            default: /var/log/qualisystems
+          Windows Log Location:
+            description: Windows Log Location
+            type: string
+            tags: [user_input]
+            default: C:\programdata\qualisystems\logs
+          SMTP Server:
+            description: SMTP Server Address
+            type: string
+            tags: [user_input]
+          SMTP Port:
+            description: SMTP Port
+            type: string
+            tags: [user_input]
+          SMTP TLS:
+            description: SMTP TLS Support
+            type: boolean
+            tags: [user_input]
+          SMTP Username:
+            description: SMTP Username
+            type: string
+            tags: [user_input]
+          SMTP Password:
+            description: SMTP Password
+            type: cloudshell.datatypes.Password
+            tags: [user_input]
+          SMTP From Name:
+            description: SMTP Send From Name
+            type: string
+            tags: [user_input]
+    artifacts:
+      icon:
+        file: shell-icon.png
+        type: tosca.artifacts.File
+      driver:
+        file: EslogscollectorDriver.zip
+        type: tosca.artifacts.File
