@@ -3,7 +3,9 @@
 3) Fill in the attribute values
 
 Example can be found under the tests folder
+
 ```python
+
 try:
     api.ExecuteCommand(reservationId=res_id, targetName=log_collector_name, targetType="Resource", commandName="get_logs_attach", commandInputs=[res_input])
 except Exception, e:
@@ -20,4 +22,6 @@ try:
         fl.write(base64.b64decode(output))
 except Exception, e:
     print "{}".format(e)
+    
 ```
+
